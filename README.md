@@ -1,5 +1,8 @@
-MCFireworksButton
-=====================
+MCFireworksButton ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
+=================
+
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MCFireworksButton/badge.png)](https://github.com/matthewcheok/MCFireworksButton)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/MCFireworksButton/badge.svg)](https://github.com/matthewcheok/MCFireworksButton)
 
 Drop-in button control with with particle effects similar to the Like button in Facebook Paper.
 
@@ -43,4 +46,4 @@ Alternatively you can use `MCFireworksView` directly if you don't need UIButton 
 
 ## License
 
-MCFireworksView is under the MIT license.
+MCFireworksButton is under the MIT license.
