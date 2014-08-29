@@ -97,14 +97,20 @@
 - (void)animate {
     self.chargeLayer.beginTime = CACurrentMediaTime();
     [self.chargeLayer setValue:@80 forKeyPath:@"emitterCells.charge.birthRate"];
-    [self performSelector:@selector(explode) withObject:nil afterDelay:0.2];
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC);
+    dispatch_after(delay, dispatch_get_main_queue(), ^{
+        [self explode];
+    });
 }
 
 - (void)explode {
-	[self.chargeLayer setValue:@0 forKeyPath:@"emitterCells.charge.birthRate"];
+    [self.chargeLayer setValue:@0 forKeyPath:@"emitterCells.charge.birthRate"];
     self.explosionLayer.beginTime = CACurrentMediaTime();
-	[self.explosionLayer setValue:@500 forKeyPath:@"emitterCells.explosion.birthRate"];
-    [self performSelector:@selector(stop) withObject:nil afterDelay:0.1];
+    [self.explosionLayer setValue:@500 forKeyPath:@"emitterCells.explosion.birthRate"];
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC);
+    dispatch_after(delay, dispatch_get_main_queue(), ^{
+        [self stop];
+    });
 }
 
 - (void)stop {
